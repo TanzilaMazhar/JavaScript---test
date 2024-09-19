@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form {
+            padding: 50px;
+            max-width: 300px;
+            margin: 0 auto;
+            box-shadow: 0px 20px 25px rgb(0, 0, 0, 0.2);
+        }
+
+        #button {
+            height: 50px;
+            width: 100px;
+            background-color: green;
+            color: white;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        label{
+            font-size: 20px;
+        }
+        input{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <form id="form">
+        <label>Income:</label><br>
+        <input type="number" id="income" placeholder="Enter the income"> <br><br>
+
+        <label>Expense:</label><br>
+        <input type="number" id="expense" placeholder="Enter the expense"><br><br>
+
+        <label>Report:</label><br>
+        <input type="text" id="report" placeholder="Enter the report"><br><br>
+
+        <button id="button">Submit</button>
+
+        <table id="submittedData" border="1px solid black">
+            <thead>
+                <th>Income</th>
+                <th>Expense</th>
+                <th>Report</th>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </form>
+</center>
+    <script>
+        let form = document.getElementById("form");
+        let tableBody = document.getElementById("tableBody");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let Income = document.getElementById("income").value;
+            let Expense = document.getElementById("expense").value;
+            let Report = document.getElementById("report").value;
+            let row = tableBody.insertRow();
+            let col1 = row.insertCell(0);
+            let col2 = row.insertCell(1);
+            let col3 = row.insertCell(2);
+            col1.textContent = Income;
+            col2.textContent = Expense;
+            col3.textContent = Report;
+
+            let val1= document.getElementById("income");
+            val1.value = "";
+            
+            
+            let val2= document.getElementById("expense");
+            val2.value = "";
+            
+            let val3= document.getElementById("report");
+            val3.value = "";
+        });
+
+    </script>
+</body>
+
+</html>
